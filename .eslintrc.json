@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "eqeqeq": "error",  // Require the use of === and !==
+    "curly": "error",  // Require following the curly brace conventions for all control statements.
+    "no-console": "warn",  // No console logs.
+    "complexity": ["error", 10],  // Limit cyclomatic complexity.
+    "yoda": "error",  // Require or disallow “Yoda” conditions.
+    "no-unused-vars": "warn"  // Warns when a variable is declared and not used.
+  }
+}

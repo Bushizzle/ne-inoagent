@@ -1,0 +1,28 @@
+{
+    "name": "Ne inoagent",
+    "version": "0.2.0",
+    "description": "Удаляет надоедливые плашки об иноагентстве или заменяет на выбранный текст",
+    "permissions": ["storage", "tabs"],
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.ts"]
+      }
+    ],
+  "icons": {
+    "16": "assets/icons8-middle-finger-128.png",
+    "48": "assets/icons8-middle-finger-128.png",
+    "128": "assets/icons8-middle-finger-128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icons8-middle-finger-128.png",
+      "24": "assets/icons8-middle-finger-128.png",
+      "32": "assets/icons8-middle-finger-128.png"
+    },
+    "default_title": "Ne inoagent",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
