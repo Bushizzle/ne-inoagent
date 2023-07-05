@@ -3,6 +3,7 @@
 Free Chrome extension to remove annoying parts of text from web pages.
 
 As usual:
+
 ```
 npm i
 npm run build

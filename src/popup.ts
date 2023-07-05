@@ -1,24 +1,26 @@
-import { getActiveTabs } from './utils';
+import { REPLACEMENTS } from './constants';
 
-document.addEventListener("DOMContentLoaded", async () => {
-	const optionsElement = document.getElementById('inoagent-options') as HTMLInputElement;
-	const options: { replacement?: string } = await new Promise((resolve) => {
-		chrome.storage.sync.get('replacement', resolve);
-	});
+document.addEventListener('DOMContentLoaded', async () => {
+  const optionsElement = document.getElementById(
+    'inoagent-options',
+  ) as HTMLInputElement;
 
-	if(options?.replacement) {
-		optionsElement.value = options.replacement;
-	}
+  REPLACEMENTS.forEach(({ title }, index) => {
+    const optionElement = document.createElement('option');
+    optionElement.value = index.toString();
+    optionElement.innerHTML = title;
+    optionsElement.appendChild(optionElement);
+  });
 
-	optionsElement.addEventListener('change', async () => {
-		const tabs = await getActiveTabs();
-		tabs.forEach((tab: chrome.tabs.Tab) => {
-			if(tab.id !== undefined){
-				chrome.tabs.sendMessage(tab.id, {
-					type: 'OPTIONS',
-					value: optionsElement.value,
-				});
-			}
-		});
-	});
+  const options: { replacement?: string } = await new Promise((resolve) => {
+    chrome.storage.local.get('replacement', resolve);
+  });
+
+  if (options?.replacement) {
+    optionsElement.value = options.replacement;
+  }
+
+  optionsElement.addEventListener('change', async () => {
+    chrome.storage.local.set({ replacement: optionsElement.value });
+  });
 });

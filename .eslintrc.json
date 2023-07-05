@@ -1,11 +1,22 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "root": true,
   "rules": {
-    "eqeqeq": "error",  // Require the use of === and !==
-    "curly": "error",  // Require following the curly brace conventions for all control statements.
-    "no-console": "warn",  // No console logs.
-    "complexity": ["error", 10],  // Limit cyclomatic complexity.
-    "yoda": "error",  // Require or disallow “Yoda” conditions.
-    "no-unused-vars": "warn"  // Warns when a variable is declared and not used.
+    "eqeqeq": "error",
+    "curly": "error",
+    "no-console": "warn",
+    "complexity": ["error", 10],
+    "yoda": "error",
+    "no-unused-vars": "warn",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off"
   }
 }
