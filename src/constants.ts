@@ -45,4 +45,12 @@ export const REPLACEMENTS = [
       'Домашние кошки могут быть тренированы выполнять различные трюки.',
     ],
   },
+  {
+    title: 'Неодобрение капибары',
+    value: 'Факты в публикации не были проверены капибарой',
+  },
+  {
+    title: 'Картинка случайного котика',
+    value: '<img alt="котек" src="https://cataas.com/cat/cute" height="250" style="display: block; margin: 0 auto"/>',
+  },
 ];

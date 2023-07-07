@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   const options: { replacement?: string } = await new Promise((resolve) => {
-    chrome.storage.local.get('replacement', resolve);
+    chrome.storage.sync.get('replacement', resolve);
   });
 
   if (options?.replacement) {
@@ -21,6 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   optionsElement.addEventListener('change', async () => {
-    chrome.storage.local.set({ replacement: optionsElement.value });
+    chrome.storage.sync.set({ replacement: optionsElement.value });
   });
 });
