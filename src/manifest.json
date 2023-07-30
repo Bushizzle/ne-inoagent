@@ -1,6 +1,6 @@
 {
   "name": "Ne inoagent",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "The extension removes the foreign agent message from all pages to make the news more readable",
   "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
@@ -11,15 +11,15 @@
     }
   ],
   "icons": {
-    "16": "assets/user-check.png",
-    "48": "assets/user-check.png",
-    "128": "assets/user-check.png"
+    "16": "assets/heart.png",
+    "48": "assets/heart.png",
+    "128": "assets/heart.png"
   },
   "action": {
     "default_icon": {
-      "16": "assets/user-check.png",
-      "24": "assets/user-check.png",
-      "32": "assets/user-check.png"
+      "16": "assets/heart.png",
+      "24": "assets/heart.png",
+      "32": "assets/heart.png"
     },
     "default_title": "Ne inoagent",
     "default_popup": "popup.html"

@@ -1,4 +1,4 @@
-import { BULLSHIT_MARKERS, REPLACEMENTS } from './constants';
+import { BULLSHIT_MARKERS, REPLACEMENTS, INOAGENT_REPLACEMENT_CLASSNAME } from './constants';
 
 const getReplacementText = (variant: number): string => {
   const { value } = REPLACEMENTS[variant];
@@ -8,7 +8,7 @@ const getReplacementText = (variant: number): string => {
 
 const createReplacementElement = (variant: number): HTMLElement => {
   const el = document.createElement('span');
-  el.className = 'inoagent-replacement';
+  el.className = INOAGENT_REPLACEMENT_CLASSNAME;
   el.innerHTML = getReplacementText(variant);
   return el;
 };
@@ -25,7 +25,8 @@ export const findAndReplaceText = async (
   element: HTMLElement,
 ): Promise<void> => {
   const option = await fetchOptions();
-  const elements = element.getElementsByTagName('*');
+  const target = element.parentElement || element;
+  const elements = [target, ...Array.from(target.getElementsByTagName('*'))];
 
   for (let i = 0; i < elements.length; i++) {
     const { childNodes } = elements[i];
@@ -42,7 +43,9 @@ export const findAndReplaceText = async (
 
         if (bullshitCounter) {
           childNodes[j].textContent = '';
-          childNodes[j].after(createReplacementElement(option));
+          if (!target.getElementsByClassName(INOAGENT_REPLACEMENT_CLASSNAME).length) {
+            childNodes[j].after(createReplacementElement(option));
+          }
         }
       }
     }

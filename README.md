@@ -11,4 +11,4 @@ npm run build
 
 Then you can load the extension from the `dist` folder in chrome extensions developer mode.
 
-Icon from all-free-download.com
+Icon by https://www.linkedin.com/in/zoya-smirnova-0a87a080/
